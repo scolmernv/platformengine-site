@@ -47,6 +47,11 @@
     }
 
     .wrap { max-width: 56rem; padding: clamp(1.5rem, 6vw, 5rem); }
+    .top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: .75rem 2rem; }
+    .sections { display: flex; gap: 1.75rem; }
+    .sections a { color: var(--muted); text-decoration: none; font-size: .95rem; padding-bottom: 2px; border-bottom: 1px solid transparent; }
+    .sections a:hover { color: var(--ink); }
+    .sections a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--glow); }
     .mark {
       color: var(--muted);
       text-decoration: none;
@@ -82,7 +87,13 @@
 </head>
 <body>
   <div class="wrap">
-    <a class="mark" href="/">Platform Engine</a>
+    <nav class="top" aria-label="Site">
+      <a class="mark" href="/">Platform Engine</a>
+      <span class="sections">
+        <a href="/apps" aria-current="page">Apps</a>
+        <a href="/agents">Agents</a>
+      </span>
+    </nav>
     <main>
       <h1>Apps</h1>
       <ul class="apps">

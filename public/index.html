@@ -69,6 +69,8 @@
       font-size: clamp(1.05rem, 2.2vw, 1.35rem);
     }
 
+    .links { display: flex; flex-wrap: wrap; gap: 1rem; align-self: flex-start; }
+
     /* Link shaped like one cell of the hexagon pattern */
     .hexlink {
       --cut: 18px;
@@ -100,7 +102,10 @@
   <main>
     <h1>Platform<br>Engine</h1>
     <p class="lede">AI Apps and Agents</p>
-    <a class="hexlink" href="/apps.html"><span>Apps</span></a>
+    <nav class="links" aria-label="Sections">
+      <a class="hexlink" href="/apps"><span>Apps</span></a>
+      <a class="hexlink" href="/agents"><span>Agents</span></a>
+    </nav>
   </main>
 </body>
 </html>
