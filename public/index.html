@@ -4,10 +4,103 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Platform Engine</title>
+  <meta name="description" content="Experiments in AI apps and agents.">
+  <meta name="theme-color" content="#14181d">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2l12 7v14l-12 7L4 23V9z' fill='%235cc2f2'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --base: #14181d;
+      --ink: #eaf1f6;
+      --muted: #a3b4c2;
+      --glow: #5cc2f2;
+      color-scheme: dark;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      background: var(--base);
+      color: var(--ink);
+      font: 400 1.0625rem/1.6 "Sora", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Background photo, fixed so it never stretches with the page, plus a
+       left-weighted shade that keeps the text readable. */
+    body::before, body::after { content: ""; position: fixed; inset: 0; pointer-events: none; }
+    body::before {
+      z-index: -2;
+      background-color: var(--base);
+      background-image: url("hex-bg.jpg");
+      background-image: image-set(url("hex-bg.webp") type("image/webp"), url("hex-bg.jpg") type("image/jpeg"));
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    body::after {
+      z-index: -1;
+      background: linear-gradient(90deg, rgba(14,18,23,.88) 0%, rgba(14,18,23,.58) 45%, rgba(14,18,23,.14) 100%);
+    }
+
+    main {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: clamp(1.5rem, 6vw, 5rem);
+      padding-bottom: clamp(3rem, 12vh, 7rem);
+    }
+    h1 {
+      margin: 0 0 1.25rem;
+      font-weight: 300;
+      font-size: clamp(3rem, 10vw, 7.5rem);
+      line-height: .98;
+      letter-spacing: -.035em;
+    }
+    .lede {
+      max-width: 30ch;
+      margin: 0 0 2.5rem;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+    }
+
+    /* Link shaped like one cell of the hexagon pattern */
+    .hexlink {
+      --cut: 18px;
+      display: inline-block;
+      align-self: flex-start;
+      padding: 1.5px;
+      background: var(--glow);
+      color: var(--ink);
+      text-decoration: none;
+      clip-path: polygon(var(--cut) 0, calc(100% - var(--cut)) 0, 100% 50%, calc(100% - var(--cut)) 100%, var(--cut) 100%, 0 50%);
+      transition: background-color .15s;
+    }
+    .hexlink span {
+      display: block;
+      padding: .9rem 2.6rem;
+      background: rgba(14, 18, 23, .94);
+      clip-path: polygon(var(--cut) 0, calc(100% - var(--cut)) 0, 100% 50%, calc(100% - var(--cut)) 100%, var(--cut) 100%, 0 50%);
+      transition: background-color .15s, color .15s;
+    }
+    .hexlink:hover span, .hexlink:focus-visible span { background: var(--glow); color: #0b1218; }
+    .hexlink:focus-visible { outline: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hexlink, .hexlink span { transition: none; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Platform Engine</h1>
-  <p>Experiments in AI apps and agents.</p>
-  <nav><a href="/apps.html">Apps</a></nav>
+  <main>
+    <h1>Platform<br>Engine</h1>
+    <p class="lede">Experiments in AI apps and agents.</p>
+    <a class="hexlink" href="/apps.html"><span>Apps</span></a>
+  </main>
 </body>
 </html>
