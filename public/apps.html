@@ -110,6 +110,10 @@
     .pe-bar a.pe-brand:hover, .pe-bar a.pe-brand:focus-visible { color: #0b1218; text-decoration: none; outline: none; }
     .pe-bar a.pe-brand:hover::before, .pe-bar a.pe-brand:focus-visible::before { background: var(--glow); }
     @media (prefers-reduced-motion: reduce) { .pe-bar a.pe-brand::before { transition: none; } }
+    /* The section links sit directly under the Platform Engine bar, top left, lined up with its hexagon */
+    .top { justify-content: flex-start; padding: .6rem .9rem 0; }
+    @media (max-width: 520px) { .top { padding-left: .6rem; padding-right: .6rem; } }
+    .wrap { padding-top: calc(clamp(1.5rem, 6vw, 5rem) - 1rem); }
   </style>
 <!-- pe-bar:css-start -->
 <style>
@@ -172,15 +176,14 @@
   </details>
 </nav>
 <!-- pe-bar:end -->
-  <div class="wrap">
-    <nav class="top" aria-label="Site">
-      <a class="mark" href="/">Platform Engine</a>
-      <span class="sections">
+  <nav class="top" aria-label="Site">
+    <span class="sections">
         <a href="/apps" aria-current="page">Live Apps</a>
         <a href="/agents">Expert Agents</a>
         <a href="/demos">Industry Showcase</a>
       </span>
-    </nav>
+  </nav>
+  <div class="wrap">
     <main>
       <h1>Live Apps</h1>
       <p class="sub">AI applications running live on a DGX Spark: chat with Nemotron, see what AI usage costs, build prospecting packages and AI factory configurations, and watch intelligent routing decide.</p>
